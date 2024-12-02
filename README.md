@@ -12,6 +12,9 @@
 Demostracion   :  https://mymbap.com
 
 
+
+
+
 ## Plataforma Publica
 
 ### Mapa interactivo
@@ -31,12 +34,18 @@ Demostracion   :  https://mymbap.com
 ![](https://i.imgur.com/7R92OTU.png)
 
 
-### Descarga
+
+
+
+## Descarga
 Para descargar y ejecutar el proyecto siga estos pasos:
 
 - Clonar el repositorio (`git clone https://github.com/josepalmacta/Mymbapp.git`)
 - Abra la carpeta del proyecto con su IDE de preferencia (Probado en Apache Netbeans).
 - Restaure la base de datos con nombre mymbappdb usando el archivo mymbappdb.sql
+
+
+
 
 
 ## Tecnologias utilizadas
@@ -48,10 +57,18 @@ Para descargar y ejecutar el proyecto siga estos pasos:
 - [Bootstrap](http://getbootstrap.com/)
 - [OpenStreetMap](http://www.w3schools.com/jquery/jquery_ref_ajax.asp)
 
+
+
+
+
+
 ## Autor
 
 ![](https://ui-avatars.com/api/?name=Jose+Palma)\
 [Jose Palma](https://github.com/josepalmacta)
+
+
+
 
 
 ## Licencia
