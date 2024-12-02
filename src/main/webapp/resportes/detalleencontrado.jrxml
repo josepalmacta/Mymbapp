@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="17ea686b-847c-4833-905c-f94233aef8bf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="detalle" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT det.idanimal, a.descripcion, a.genero, r.nombre AS raz, e.nombre as esp FROM detalleencontrado det INNER JOIN animales a ON det.idanimal=a.id INNER JOIN razas r ON a.raza=r.id INNER JOIN especies e ON r.especie=e.id WHERE idencontrados=$P{detalle};]]>
+	</queryString>
+	<field name="idanimal" class="java.lang.Integer"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="genero" class="java.lang.String"/>
+	<field name="raz" class="java.lang.String"/>
+	<field name="esp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="208" splitType="Stretch">
+			<rectangle>
+				<reportElement x="135" y="117" width="395" height="60" forecolor="#0000FF" backcolor="#FFFFFF" uuid="e5978536-b0d6-413f-a63a-cafdd4719922"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="135" y="63" width="395" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="739d03f3-427a-4c92-9a43-7a0955a32441"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="135" y="34" width="395" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="04cefc16-627b-4b6b-94c5-841fc2329634"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="135" y="88" width="395" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="0c71a4fb-0844-4fc3-804a-269120a7e655"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="24" y="92" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="deebf5c0-15d6-46e5-a7a8-922bd3a9754c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="24" y="62" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="a2afb02f-67be-40a7-be1c-961b2abef4b8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="24" y="118" width="111" height="59" forecolor="#FFFFFF" backcolor="#0000FF" uuid="aec50384-9611-48b0-af26-c5f0c328577a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="35" y="128" width="100" height="20" forecolor="#FFFFFF" uuid="ddb832d8-ea9e-43a1-8044-d8a53e541231"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="24" y="33" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="9ac6d794-88f7-40e7-b584-c4e43bbb11cc"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="35" y="97" width="100" height="20" forecolor="#FFFFFF" uuid="89a2ad76-9434-47f4-90e6-f9c58d6ab7ac"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GENERO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="37" width="100" height="20" forecolor="#FFFFFF" uuid="91f05505-c27c-4767-8a2f-33611203c2b5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="68" width="100" height="20" forecolor="#FFFFFF" uuid="801fe86c-f7f8-434c-9083-84b2ea88b923"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="68" width="366" height="20" uuid="15337214-875b-411c-bb78-95815269b20c"/>
+				<textFieldExpression><![CDATA[$F{raz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="37" width="366" height="20" uuid="82808ffe-45f2-4b9e-8c1b-68e92fcf72ce"/>
+				<textFieldExpression><![CDATA[$F{esp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="97" width="366" height="20" uuid="1372ede4-15c8-4a54-ac4d-3082bd93e8b7"/>
+				<textFieldExpression><![CDATA[$F{genero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="128" width="366" height="43" uuid="2e49af4e-7dfc-4a5e-b03f-4b02920628da"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

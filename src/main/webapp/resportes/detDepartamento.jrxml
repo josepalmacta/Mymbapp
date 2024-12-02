@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5056d916-a97c-44ec-8946-96e4809f502f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codee" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM departamentos dep WHERE dep.id=$P{codee};]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="codigo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="277" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="37e0e7e6-a799-49b0-b3c5-2751b95ab39f"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="4" y="201" width="548" height="42" uuid="3ee4b5d7-477c-4d9c-9019-adba3cb69e7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE INDIVIDUAL DE DEPARTAMENTO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="260" width="520" height="1" uuid="fc119740-24f2-4241-abe8-87f393a5e679"/>
+			</line>
+			<line>
+				<reportElement x="17" y="180" width="520" height="1" uuid="4d19af12-9a7d-4016-9c06-c393f0620f7b"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="141" splitType="Stretch">
+			<rectangle>
+				<reportElement x="139" y="52" width="362" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="e5532d8a-cdfa-4d9f-b138-f51becda41ef"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="139" y="78" width="362" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="5be73fac-7a90-4a0f-ac4a-1269a019378a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="139" y="23" width="362" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="14f3b945-7d59-4e72-843b-5c4c505297dc"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="28" y="79" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="8a5fc45c-02f0-4fa8-91bf-fe9a4f9dde57"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="28" y="49" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="b3b66c08-b3ae-4ca7-b185-d37a51274890"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="28" y="22" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="c2b95671-7761-4c24-ac7c-c3dfd6f22b02"/>
+			</rectangle>
+			<textField>
+				<reportElement x="149" y="29" width="340" height="20" uuid="6af75f0e-6ea2-4ffd-813c-6fb3d1bd8b14"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="39" y="29" width="100" height="20" forecolor="#FFFFFF" uuid="7ba4420f-5eb7-4f8b-ab29-78013d1f1dc7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="149" y="56" width="340" height="20" uuid="a8c2362d-67ac-47c3-9553-fbf04a2a6c27"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="39" y="56" width="100" height="20" forecolor="#FFFFFF" uuid="5eaec8fb-cc45-4a9e-94d4-0b8d09eb84e9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="149" y="85" width="340" height="20" uuid="ad9a21a8-b92b-4b68-aecd-fccbea2ad6b1"/>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="39" y="85" width="100" height="20" forecolor="#FFFFFF" uuid="cb9d3784-431f-46db-a91c-db028e45e583"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO POSTAL]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

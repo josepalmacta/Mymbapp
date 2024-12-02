@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5359e130-b2a0-4a49-9ad9-c161880cd508">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="params" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="finicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ffin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="estado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qusu" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qdepar" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qciu" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qbarr" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Usuario\\Documents\\NetBeansProjects\\proyecto1\\src\\main\\webapp\\informes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="autor" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT p.id, p.fecha, p.sis_estado as estado, per.nombre, barr.nombre as barrio, ciu.nombre as ciudad, dep.nombre as depar FROM encontrados p INNER JOIN personas per ON p.persona=per.id INNER JOIN barrios barr ON p.barrio=barr.id INNER JOIN ciudades ciu ON ciu.id=barr.ciudad INNER JOIN departamentos dep ON dep.id=ciu.departamento WHERE $P!{params}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="barrio" class="java.lang.String"/>
+	<field name="ciudad" class="java.lang.String"/>
+	<field name="depar" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="286" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="65d74527-f385-4d26-a26b-4802647b8863"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["../resportes/encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="1" y="160" width="200" height="100" uuid="7a62f326-8361-4757-9cff-0af0f7353f71"/>
+				<subreportParameter name="finicio">
+					<subreportParameterExpression><![CDATA[$P{finicio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ffin">
+					<subreportParameterExpression><![CDATA[$P{ffin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="estado">
+					<subreportParameterExpression><![CDATA[$P{estado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qdepar">
+					<subreportParameterExpression><![CDATA[$P{qdepar}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pquery">
+					<subreportParameterExpression><![CDATA[$P{params}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qciu">
+					<subreportParameterExpression><![CDATA[$P{qciu}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qbarr">
+					<subreportParameterExpression><![CDATA[$P{qbarr}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qusu">
+					<subreportParameterExpression><![CDATA[$P{qusu}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="autor">
+					<subreportParameterExpression><![CDATA[$P{autor}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tipo">
+					<subreportParameterExpression><![CDATA[$P{tipo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "filtrospost.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<rectangle>
+				<reportElement x="496" y="0" width="59" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="34b1d3d5-fe7e-42de-8a08-4513759a5a29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="396" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="b29aada5-3e81-4696-9695-de4459498763"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="275" y="0" width="121" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="3ea9b3e0-af41-4e3f-a70c-f01256faaad4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="196" y="0" width="79" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="235d96a8-5133-4b33-afb8-65d845729b1b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="96" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="fc4701ae-0811-4216-b260-5dbc6f19f047"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="41" y="0" width="55" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="94b4c105-4692-4d97-9128-f3e1089637b0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="41" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="45ed4b1d-24bc-462a-aac8-384815b11318"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="41" height="20" forecolor="#FFFFFF" uuid="52666209-f0b8-4306-a22e-36fca8dd81af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="0" width="55" height="20" forecolor="#FFFFFF" uuid="014e2e10-d530-4c39-a15a-343c4b37c4a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="17f9f2bb-d944-46d3-ae9e-0ee1b3b16cb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CREADO POR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="0" width="59" height="20" forecolor="#FFFFFF" uuid="a3b12f38-1778-465d-bdba-b1bd0b7fb939"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="cc58bd12-2efc-4091-be66-6d943e1cd61e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BARRIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="0" width="79" height="20" forecolor="#FFFFFF" uuid="ee77e3c1-2520-48d3-b920-f7c34fa40228"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="0" width="121" height="20" forecolor="#FFFFFF" uuid="538a4170-e514-4de6-ac50-80c468b43579"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIUDAD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="41" height="20" uuid="86a7e312-0d31-4eab-ac53-9cfdb14ff385"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="46" y="0" width="50" height="20" uuid="b2ec782a-11aa-4e93-9ed9-21b11a86ba11"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="0" width="95" height="20" uuid="04a2f447-5f34-44eb-8dba-0ae2cf3a5080"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="0" width="95" height="20" uuid="554458b9-4e9b-4280-bd10-d59ca5b5a774"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{barrio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="0" width="74" height="20" uuid="78e9b1cc-bff2-467d-b341-aacb154cc28c"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{depar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="116" height="20" uuid="7288ee22-b6cc-40ad-84b5-82c588d91a61"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="501" y="0" width="54" height="20" uuid="a0d15d78-8c16-45bb-8d38-75ac5942b50b"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

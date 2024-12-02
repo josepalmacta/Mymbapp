@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f89464f9-efe6-4f23-acda-0ec08c9fcbc8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="95"/>
+	<parameter name="detalle" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Usuario\\Documents\\NetBeansProjects\\proyecto1\\src\\main\\webapp\\resportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT b.nombre, c.nombre, per.nombre, p.latitud, p.longitud, p.info, p.recompensa, p.fecha, p.contacto, p.sis_estado FROM perdidos p INNER JOIN personas per ON p.persona=per.id INNER JOIN barrios b ON p.barrio=b.id INNER JOIN ciudades c ON b.ciudad=c.id  WHERE p.id=$P{detalle};]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="latitud" class="java.lang.String"/>
+	<field name="longitud" class="java.lang.String"/>
+	<field name="info" class="java.lang.String"/>
+	<field name="recompensa" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="contacto" class="java.lang.String"/>
+	<field name="sis_estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="465" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="222103ad-6a10-42f6-ae19-5720064b66a3"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="17" y="180" width="520" height="1" uuid="19b082b5-f151-41a9-b6eb-eebd2f7bc639"/>
+			</line>
+			<line>
+				<reportElement x="17" y="456" width="520" height="1" uuid="3c1650cb-0fb2-467c-9bde-2bbd8dd6fb43"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="201" width="548" height="42" uuid="2525a40d-41cd-40d8-b430-d16bfc67e238"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE INDIVIDUAL DE PUBLICACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="260" width="129" height="20" uuid="1c426920-061c-4341-9c0f-44a9a6422b82"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE CREACION:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="290" width="100" height="20" uuid="f2d0435f-f952-4989-a449-f49c039c8d70"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORMACION:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="343" width="100" height="20" uuid="a18d577b-cc38-4fa5-96a7-feaeb3996250"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECOMPENSA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="59" y="374" width="100" height="20" uuid="0706c3c8-62b5-4569-b2d7-cfb24dcb0826"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTACTO:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="188" y="260" width="296" height="20" uuid="e4ff65e4-fe9a-4e38-92ba-478df84c744b"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="290" width="296" height="40" uuid="3dc2c7c5-7087-4704-b9a9-4519d7c0962a"/>
+				<textFieldExpression><![CDATA[$F{info}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="343" width="296" height="20" uuid="5f4adfd3-b866-4a9d-8a6f-133304783fe1"/>
+				<textFieldExpression><![CDATA[$F{recompensa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="374" width="296" height="20" uuid="ff08d9f1-d6a0-474e-861a-a52dd8c96899"/>
+				<textFieldExpression><![CDATA[$F{contacto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="59" y="408" width="100" height="20" uuid="82b9e8d5-1e0f-4b53-8bc3-b58419e0875e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="188" y="408" width="296" height="20" uuid="a1e6e098-fb1d-414b-b632-d1e257f63d64"/>
+				<textFieldExpression><![CDATA[$F{sis_estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="a67205af-54da-449e-976d-25e203c49efd"/>
+				<subreportParameter name="detalle">
+					<subreportParameterExpression><![CDATA[$P{detalle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./detallepub.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

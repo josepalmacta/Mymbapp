@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ae71640-f650-41d5-8a5d-ac2f57ea852f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="params" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="finicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ffin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="estado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="especie" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Usuario\\Documents\\NetBeansProjects\\proyecto1\\src\\main\\webapp\\informes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="espquery" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="autor" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT p.id, p.fecha, e.nombre as especie, r.nombre as raza, p.estado FROM animales a INNER JOIN detalleadopcion dp on dp.idanimal=a.id INNER JOIN adopciones p on dp.idadopcion=p.id INNER JOIN razas r on a.raza=r.id INNER JOIN especies e on e.id=r.especie WHERE $P!{params}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="especie" class="java.lang.String"/>
+	<field name="raza" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="287" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="74433e1a-c923-4edc-a6bf-1a3e7505b24d"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["../resportes/encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="164" width="200" height="100" uuid="7174f88d-8743-4a6d-8ac4-e914ef1bc8c4"/>
+				<subreportParameter name="finicio">
+					<subreportParameterExpression><![CDATA[$P{finicio}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ffin">
+					<subreportParameterExpression><![CDATA[$P{ffin}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="estado">
+					<subreportParameterExpression><![CDATA[$P{estado}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="especie">
+					<subreportParameterExpression><![CDATA[$P{especie}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="espquery">
+					<subreportParameterExpression><![CDATA[$P{espquery}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="autor">
+					<subreportParameterExpression><![CDATA[$P{autor}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="tipo">
+					<subreportParameterExpression><![CDATA[$P{tipo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./filtrosespecie.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="455" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="171881d0-208c-4905-82eb-70293bbf31f0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="362" y="0" width="93" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="df53f9c6-1c00-41d1-a91e-9a4bc39216bf"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="144" y="0" width="218" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="9112635b-f71e-4d6e-9db5-7cb612c22ce3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="44" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="e9e83374-a493-4d11-b80f-308035e45a19"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="44" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="ec8c134e-d606-42be-b1f7-6612fd1e6ac3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="44" height="20" forecolor="#FFFFFF" uuid="a514d601-80a8-41f9-9e03-a024eb824cf6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="0" width="218" height="20" forecolor="#FFFFFF" uuid="94dd911a-5298-42bb-9150-282e873b7203"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="814966ac-881c-4043-8053-2f7a6333f99d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="0" width="93" height="20" forecolor="#FFFFFF" uuid="07070d32-b8ea-441a-a27b-1af57d7ad5c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="7adb0291-cbe9-4e58-9e58-e169baa420dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="44" height="20" uuid="4e9b3c72-291e-488e-9616-14887f2d2c8f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="44" y="0" width="100" height="20" uuid="d2ca1df9-7def-46d0-baa0-851fe546dbea"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="0" width="208" height="20" uuid="4cf1b990-eb7e-41ef-96bd-264c1c5453e5"/>
+				<textFieldExpression><![CDATA[$F{especie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="367" y="0" width="83" height="20" uuid="74fa2ae8-a141-4559-ad92-d7d9719f3b0f"/>
+				<textFieldExpression><![CDATA[$F{raza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="90" height="20" uuid="7c5194ec-0d02-4567-ae76-d6b1a4c1af7d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

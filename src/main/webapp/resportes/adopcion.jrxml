@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f89464f9-efe6-4f23-acda-0ec08c9fcbc8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="72"/>
+	<parameter name="detalle" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Usuario\\Documents\\NetBeansProjects\\proyecto1\\src\\main\\webapp\\resportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT b.nombre, c.nombre, per.nombre, p.latitud, p.longitud, p.requisitos, p.fecha, p.contacto, p.sis_estado FROM adopciones p INNER JOIN personas per ON p.persona=per.id INNER JOIN barrios b ON p.barrio=b.id INNER JOIN ciudades c ON b.ciudad=c.id  WHERE p.id=$P{detalle};]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="latitud" class="java.lang.String"/>
+	<field name="longitud" class="java.lang.String"/>
+	<field name="requisitos" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="contacto" class="java.lang.String"/>
+	<field name="sis_estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="465" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="00e169bd-c2c1-45f8-99b2-d7271f0795fb"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="17" y="180" width="520" height="1" uuid="bf9e1590-b704-434d-a35a-23f567219072"/>
+			</line>
+			<line>
+				<reportElement x="17" y="451" width="520" height="1" uuid="354e093c-a31c-4e6f-9370-79555e2a2c66"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="201" width="548" height="42" uuid="54f02076-ef38-490e-94a5-3de3af391158"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE INDIVIDUAL DE PUBLICACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="265" width="129" height="20" uuid="1c426920-061c-4341-9c0f-44a9a6422b82"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE CREACION:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="295" width="100" height="20" uuid="f2d0435f-f952-4989-a449-f49c039c8d70"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REQUISITOS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="367" width="100" height="20" uuid="0706c3c8-62b5-4569-b2d7-cfb24dcb0826"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTACTO:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="189" y="265" width="253" height="20" uuid="e4ff65e4-fe9a-4e38-92ba-478df84c744b"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="367" width="253" height="20" uuid="ff08d9f1-d6a0-474e-861a-a52dd8c96899"/>
+				<textFieldExpression><![CDATA[$F{contacto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="401" width="100" height="20" uuid="82b9e8d5-1e0f-4b53-8bc3-b58419e0875e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="189" y="401" width="253" height="20" uuid="a1e6e098-fb1d-414b-b632-d1e257f63d64"/>
+				<textFieldExpression><![CDATA[$F{sis_estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="189" y="295" width="253" height="55" uuid="55ad9923-1c73-48ac-a3fb-0417aec03aa3"/>
+				<textFieldExpression><![CDATA[$F{requisitos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="a67205af-54da-449e-976d-25e203c49efd"/>
+				<subreportParameter name="detalle">
+					<subreportParameterExpression><![CDATA[$P{detalle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./detalleadopcion.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

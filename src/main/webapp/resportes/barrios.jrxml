@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="785df3e7-499a-434a-b7ed-347718d19781">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select b.id as id, b.nombre as nombre, c.nombre as ciudad  from barrios b inner join ciudades c on c.id=b.ciudad;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="ciudad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="277" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="631a297b-2906-4090-91cb-d341c6ccffaf"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="4" y="201" width="548" height="42" uuid="e0e3d9af-cd03-4b71-8c20-b5fc8dd079d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GENERAL DE BARRIOS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="260" width="520" height="1" uuid="365d8316-a949-4d65-934e-96abd00c4ddf"/>
+			</line>
+			<line>
+				<reportElement x="17" y="180" width="520" height="1" uuid="d5735061-fccc-48fb-841c-76494be91b9b"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="377" y="0" width="178" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="1c7df521-4ad8-469f-89ee-fb3f598f83cc"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="45" y="0" width="332" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="90c757d4-dec0-421e-aeb2-430166b11fe0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="45" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="7560a2f8-86c5-463d-8434-8753de1ccbd1"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="45" height="20" forecolor="#FFFFFF" uuid="e667f06c-c6c6-427b-bff1-d05daa3b8a1c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="0" width="332" height="20" forecolor="#FFFFFF" uuid="510dd551-e0e3-4170-bdee-9e7c509e340c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="0" width="178" height="20" forecolor="#FFFFFF" uuid="d5b01e0d-9f92-407c-9278-24a0e651b263"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIUDAD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="45" height="20" uuid="271fe1c8-7f0b-4173-a8d7-e33be6ed5a96"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="55" y="0" width="322" height="20" uuid="b985f007-70cd-43fa-a247-f809ebf17606"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="387" y="0" width="168" height="20" uuid="9d0533fc-29c1-4018-92bc-3ea51196a89e"/>
+				<textFieldExpression><![CDATA[$F{ciudad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

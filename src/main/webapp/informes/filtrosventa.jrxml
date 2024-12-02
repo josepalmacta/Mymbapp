@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="435cb2fe-c21d-4da4-8651-a3b06cbac548">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="finicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ffin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="estado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cliente" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="cliquery" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="autor" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select 
+    case
+        when $P{cliente} = -1 then 'TODOS'
+    else 
+        personas.nombre
+    end as cli from personas where $P!{cliquery}]]>
+	</queryString>
+	<field name="cli" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="225" splitType="Stretch">
+			<staticText>
+				<reportElement x="27" y="90" width="70" height="20" uuid="2afb1d2d-89b7-4a80-be44-d18b84540806"/>
+				<text><![CDATA[Fecha Inicio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="124" width="70" height="20" uuid="a83dc004-7a6f-4437-a94d-8539b303075b"/>
+				<text><![CDATA[Fecha Fin:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="124" width="44" height="20" uuid="277eed41-b8a3-4e6d-9345-a957d4ceb594"/>
+				<text><![CDATA[Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="90" width="44" height="20" uuid="405da33c-cfdb-4b3a-9a94-ef455512ca8f"/>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="299" y="90" width="208" height="20" uuid="6a1807b5-b9ba-436c-9059-9a48eb36eefb"/>
+				<textFieldExpression><![CDATA[$P{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="124" width="208" height="20" uuid="e5208a6d-0134-458f-8a43-175c958079cc"/>
+				<textFieldExpression><![CDATA[$F{cli}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="30" width="530" height="34" uuid="cc1cec92-5521-4879-b70d-950ba99bd1ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME DE VENTAS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="10" width="530" height="1" uuid="99af41ff-6010-4503-a611-445f0b7f400d"/>
+			</line>
+			<line>
+				<reportElement x="14" y="201" width="530" height="1" uuid="f45d4845-577b-4e22-a961-71e932344ffe"/>
+			</line>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="97" y="90" width="126" height="20" uuid="d710d60e-1075-46c8-bcb4-b9c8ee88b38e"/>
+				<textFieldExpression><![CDATA[($P{finicio}.equals("TODO")) ? $P{finicio} : new SimpleDateFormat("yyyy-MM-dd").parse($P{finicio})]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="97" y="124" width="126" height="20" uuid="72a6246e-e83d-4c59-b72e-5be81abbc06c"/>
+				<textFieldExpression><![CDATA[($P{ffin}.equals("TODO")) ? $P{ffin} : new SimpleDateFormat("yyyy-MM-dd").parse($P{ffin})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="160" width="62" height="20" uuid="af36f848-2a44-4be5-94fe-0d0ba04191aa"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Generado el ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="91" y="160" width="109" height="20" uuid="2b76b88b-ffda-467b-9446-acf394b53545"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="160" width="292" height="20" uuid="d6eb96f2-0646-4a95-914c-7701fcfca81e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" por " +  $P{autor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

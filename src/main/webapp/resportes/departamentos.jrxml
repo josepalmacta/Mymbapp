@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3d292e82-0737-4a45-9b59-f0d16013103d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from departamentos;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="codigo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="277" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="78b20856-f74e-4d80-b9c1-1ed1ad58efca"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="7" y="201" width="548" height="42" uuid="56a516a1-5705-4584-b360-7649e579f240"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GENERAL DE DEPARTAMENTOS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="20" y="180" width="520" height="1" uuid="661e473c-c7ea-45cc-bee7-f0490a3b6f93"/>
+			</line>
+			<line>
+				<reportElement x="20" y="260" width="520" height="1" uuid="bea80d72-0055-4129-b94b-5c94622c0e3c"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="435" y="2" width="120" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="bd99a557-aec8-42cf-9dc9-5ecd296a6831"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="44" y="2" width="391" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="6c034cbb-abb7-4133-8392-7ea8799c72db"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="2" width="44" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="54ba2c84-6f38-4fea-864a-fa47bf20a046"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="1" width="44" height="20" forecolor="#FFFFFF" uuid="6c74d841-604a-4f1e-ba12-384a64bd55e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="2" width="391" height="20" forecolor="#FFFFFF" uuid="9a2970fd-ae8d-4fe5-9a33-3c0dbb392e53"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="1" width="120" height="20" forecolor="#FFFFFF" uuid="1bbb4343-1954-451a-8710-d2f717972308"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO POSTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="44" height="20" uuid="f4c06624-c011-4da9-8d17-b8bf16720474"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="0" width="379" height="20" uuid="415d3bfe-703c-4ab2-acf5-29f660f9e669"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="0" width="110" height="20" uuid="8294eebd-ccd1-4042-b04a-e09810e4b7aa"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc4902a3-aa0d-43f5-8fa8-526b8a713d7f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codee" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT raz.id as cod, raz.nombre as nomb, esp.nombre as espe FROM razas raz INNER JOIN especies esp ON raz.especie=esp.id WHERE raz.id=$P{codee};]]>
+	</queryString>
+	<field name="cod" class="java.lang.Integer"/>
+	<field name="nomb" class="java.lang.String"/>
+	<field name="espe" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="277" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="46db2c72-a5e7-41ff-ba48-c20a0c842afb"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="17" y="170" width="520" height="1" uuid="cec4845e-0e67-46ac-a80f-1076754200f4"/>
+			</line>
+			<line>
+				<reportElement x="17" y="250" width="520" height="1" uuid="f434e936-fcae-498a-aa0a-16d41f4f1072"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="191" width="548" height="42" uuid="b0a401da-4d1d-4556-8a5c-5b8a8c6e3536"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE INDIVIDUAL DE RAZA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="54">
+			<staticText>
+				<reportElement x="14" y="0" width="529" height="43" uuid="6abaae1b-6440-4458-84ed-5bc7538039de"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Detallado de Raza]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="161" splitType="Stretch">
+			<rectangle>
+				<reportElement x="38" y="89" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="5c2eb6ea-f6e3-4520-815a-add0de102538"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="38" y="59" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="c1dbe8c3-bf68-4188-863b-5a946364e4b3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="149" y="62" width="362" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="a54c79bc-f6d4-41df-895e-6a5b9334f135"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="149" y="88" width="362" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="73701bdf-4f57-4f11-8630-571de2e5d30e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="38" y="32" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="3a41251c-9a0c-4040-a00a-1a376428b66f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="149" y="33" width="362" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="b1ba533b-89d5-4f28-a0dd-c29386a62e75"/>
+			</rectangle>
+			<textField>
+				<reportElement x="161" y="37" width="327" height="20" uuid="bca53e76-c464-4fbc-8a08-8397cd651989"/>
+				<textFieldExpression><![CDATA[$F{cod}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="55" y="37" width="82" height="20" forecolor="#FFFFFF" uuid="f8ef1613-1df4-4e8b-9ffd-cdcaf8b2fbc2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="67" width="327" height="20" uuid="49b15302-5675-4d04-9270-ef02dda8ac81"/>
+				<textFieldExpression><![CDATA[$F{nomb}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="55" y="67" width="82" height="20" forecolor="#FFFFFF" uuid="c20686a2-f928-4edc-8916-65f8ce402ff7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="95" width="327" height="20" uuid="74309012-b5f9-47c1-b916-940da5ebf896"/>
+				<textFieldExpression><![CDATA[$F{espe}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="55" y="95" width="82" height="20" forecolor="#FFFFFF" uuid="d97bbc42-ad10-460f-9237-0adc96a8ee87"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

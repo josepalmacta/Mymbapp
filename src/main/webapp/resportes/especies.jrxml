@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="480cf2bb-4b6d-48f9-a3cc-47b625b0fded">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from especies;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="277" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="9296400b-06e3-467e-8c24-d99a732a3fba"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="4" y="202" width="548" height="42" uuid="1f3e7952-2195-40f2-a083-d883ab6e7f9c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GENERAL DE ESPECIES]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="261" width="520" height="1" uuid="f13374cf-5168-447f-880e-5a67e7a4e277"/>
+			</line>
+			<line>
+				<reportElement x="17" y="181" width="520" height="1" uuid="ac718532-13ba-4538-8e31-054ad235a140"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="177" y="0" width="375" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="753e97b5-30d0-45cb-b66b-8989e857b8ac"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="177" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="fe363a47-80d4-411d-a0dc-6a7597b7cff2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="177" height="20" forecolor="#FFFFFF" uuid="ed445f74-2e5a-49b9-9f8c-abc05b2575b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="0" width="378" height="20" forecolor="#FFFFFF" uuid="aca79d8f-0b9b-46e2-a505-68a61a99022d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="8" y="0" width="160" height="20" uuid="f1fb2f61-7004-4c64-935a-d9fe6e1ee1e0"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="0" width="365" height="20" uuid="3be8261a-d568-415c-8445-747e62e2e8ea"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

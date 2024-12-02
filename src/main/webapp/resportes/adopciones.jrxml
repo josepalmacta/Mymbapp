@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5359e130-b2a0-4a49-9ad9-c161880cd508">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT p.id, p.fecha, p.sis_estado, per.nombre FROM adopciones p INNER JOIN personas per ON p.persona=per.id WHERE NOT p.sis_estado='ELIMINADO';]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="sis_estado" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="277" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="74ab0524-b834-4c5c-9400-e81e2609b40a"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="4" y="201" width="548" height="42" uuid="3936b5d1-751f-4fb6-948f-fd0a96c42cde"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GENERAL DE PUBLICACIONES DE MASCOTAS EN ADOPCION]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="260" width="520" height="1" uuid="b3dfffb9-17f7-42e5-a0b7-242de6f3c1c3"/>
+			</line>
+			<line>
+				<reportElement x="17" y="180" width="520" height="1" uuid="1ba63e1e-6ae7-4a86-b74e-576c79548412"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="451" y="1" width="103" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="5f1d2499-b72a-4f7d-a8d4-87b9d31acc84"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="231" y="1" width="220" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="c0901ff1-85c1-43ad-8fcd-3e9ea068e25f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="100" y="1" width="131" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="94c7af9f-92e8-4cb3-8916-846a2c6e496d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="1" width="100" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="f7669cd4-0aac-4bd2-9656-19d49d45050a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="52666209-f0b8-4306-a22e-36fca8dd81af"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1" width="131" height="20" forecolor="#FFFFFF" uuid="014e2e10-d530-4c39-a15a-343c4b37c4a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="1" width="220" height="20" forecolor="#FFFFFF" uuid="17f9f2bb-d944-46d3-ae9e-0ee1b3b16cb0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CREADO POR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="a3b12f38-1778-465d-bdba-b1bd0b7fb939"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="86a7e312-0d31-4eab-ac53-9cfdb14ff385"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="100" y="0" width="131" height="20" uuid="b2ec782a-11aa-4e93-9ed9-21b11a86ba11"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="209" height="20" uuid="04a2f447-5f34-44eb-8dba-0ae2cf3a5080"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="0" width="100" height="20" uuid="ab5b4f69-d7ca-4e5d-b9d2-85f99d06e6b9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{sis_estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

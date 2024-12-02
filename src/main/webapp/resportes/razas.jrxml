@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="86d4cee1-6116-4016-9b29-90d01726e6b8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select razas.id as id, razas.nombre as raza, especies.nombre as espe from razas inner join especies on razas.especie=especies.id;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="raza" class="java.lang.String"/>
+	<field name="espe" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="277" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="ed8cf3d5-ae1a-46a4-afb0-265857994f6e"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="3" y="201" width="548" height="42" uuid="834ec786-4d5b-4114-9157-4b2a49030187"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE GENERAL DE RAZAS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="16" y="260" width="520" height="1" uuid="75b46926-4618-4d32-9a0e-a1fe2145dc13"/>
+			</line>
+			<line>
+				<reportElement x="16" y="180" width="520" height="1" uuid="219c5817-43fd-4d24-a33b-7d132d4fa7ba"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<rectangle>
+				<reportElement x="331" y="0" width="224" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="55a4273f-9fa5-48f2-a50f-b6c0cb3f488b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="100" y="0" width="231" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="3759521a-ecc8-4388-b55a-b1b363a93a41"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#0000FF" uuid="6ef301ce-fe12-4e51-bb25-209759950a45"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="1a93fbfe-92f0-4a53-8509-1ee3e839bd39"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="231" height="20" forecolor="#FFFFFF" uuid="5bf9cd0b-9204-41d5-b48c-fe4c4894b4f6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAZA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="0" width="224" height="20" forecolor="#FFFFFF" uuid="dfaf132b-f6cb-4c22-837e-78e11c41eed4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="d4630168-18a2-4b36-bcd8-132b1c1688dc"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="221" height="20" uuid="853113ca-c0f3-4f18-a860-f74c77e223fc"/>
+				<textFieldExpression><![CDATA[$F{raza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="0" width="213" height="20" uuid="cd076dc0-c815-4ea6-98f7-1ac0d6f7a5d8"/>
+				<textFieldExpression><![CDATA[$F{espe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

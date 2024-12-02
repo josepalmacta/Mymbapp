@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detalleventas" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f87d4638-f47a-4505-9181-1b9469fb5f14">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="detalle" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from ventasdetalle det inner join productos prod on det.producto=prod.id where venta=$P{detalle}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="venta" class="java.lang.Integer"/>
+	<field name="producto" class="java.lang.Integer"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="precio" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="stock" class="java.lang.Integer"/>
+	<variable name="multiplicador" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{precio}*$F{cantidad}]]></variableExpression>
+	</variable>
+	<variable name="totalgral" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$V{multiplicador}]]></variableExpression>
+	</variable>
+	<variable name="iva" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{totalgral}/11]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField pattern="">
+				<reportElement x="493" y="4" width="57" height="20" uuid="4460ed7a-9349-4004-9f88-81c1479d8b19"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{multiplicador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="4" width="100" height="20" uuid="6ad505b3-a596-4366-8a59-87a06a20869f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="4" width="185" height="20" uuid="dc0781e7-4e0b-454d-973e-884fa1f28305"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="4" width="75" height="20" uuid="389c7be4-952c-447c-a2d4-1c47bf796f4c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="8"/>
+	</pageFooter>
+</jasperReport>

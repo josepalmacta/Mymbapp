@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="860cc3be-3d94-48ea-80f0-9d384295748c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="codee" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT ciu.id as id, ciu.nombre as nombre, ciu.codigo as cod, dep.nombre as depar FROM ciudades ciu INNER JOIN departamentos dep ON ciu.departamento=dep.id WHERE ciu.id=$P{codee};]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="cod" class="java.lang.String"/>
+	<field name="depar" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="277" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="200" height="100" uuid="d1a34b25-714d-4247-8f01-457c7a2a5c80"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["./encabezado.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="17" y="180" width="520" height="1" uuid="f90e5a8e-26ba-49ea-919a-7a9884f948cc"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="201" width="548" height="42" uuid="8beac4ff-8956-4687-8d65-3d561474968c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE INDIVIDUAL DE CIUDAD]]></text>
+			</staticText>
+			<line>
+				<reportElement x="17" y="260" width="520" height="1" uuid="a4cc813b-a2ad-4984-becb-7eb08aac5afd"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="224" splitType="Stretch">
+			<rectangle>
+				<reportElement x="149" y="69" width="395" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="4e24f33e-d990-41a4-9f3a-0be3663ea617"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="149" y="98" width="395" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="caf0298c-dd9e-48f7-b0cd-1fcd7d64af29"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="149" y="40" width="395" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="84f7c348-ed3e-49e6-aaab-067656b27ff0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="38" y="99" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="068a8b3f-4d42-46f3-84d9-3414cf779745"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="38" y="69" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="81dfb8f2-49fd-49dc-884c-82710cef61ee"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="38" y="39" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="ac09b115-ad8c-4403-b74d-630754e1c678"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="38" y="128" width="111" height="30" forecolor="#FFFFFF" backcolor="#0000FF" uuid="c1138bf6-78bb-46f3-8f2e-a4c920e6e7a7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="149" y="128" width="395" height="30" forecolor="#0000FF" backcolor="#FFFFFF" uuid="b95b4faa-669a-421c-811f-5243d8bc7d77"/>
+			</rectangle>
+			<textField>
+				<reportElement x="161" y="46" width="356" height="20" uuid="05990718-1281-4738-ba08-444aa9daf5b1"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="46" width="100" height="20" forecolor="#FFFFFF" uuid="e61b199f-ab9a-453e-ac67-61774cd171ce"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="75" width="356" height="20" uuid="0ab4da04-13af-4ce4-b2d8-477b68023db9"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="75" width="100" height="20" forecolor="#FFFFFF" uuid="6b4a9522-4a22-4bd5-9e52-350d5138b365"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="105" width="356" height="20" uuid="066a8b4e-923d-4f9d-850b-fa17021da207"/>
+				<textFieldExpression><![CDATA[$F{cod}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="105" width="100" height="20" forecolor="#FFFFFF" uuid="3a15eccd-640e-4a1f-9e40-9e48b1459bcc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CODIGO POSTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="161" y="133" width="356" height="20" uuid="033cbd4c-54ee-42cf-a293-eeb1a0d30141"/>
+				<textFieldExpression><![CDATA[$F{depar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="133" width="100" height="20" forecolor="#FFFFFF" uuid="64db2522-f97d-43b5-932c-3fe1d0b57b8e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPARTAMENTO]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+</jasperReport>

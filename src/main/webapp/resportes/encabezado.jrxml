@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="f0b1c97a-126b-4d2b-ba38-96c21c0aa5d5">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from usuarios where id='1';]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="clave" class="java.lang.String"/>
+	<field name="rol" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<title>
+		<band height="136" splitType="Stretch">
+			<image>
+				<reportElement x="31" y="23" width="100" height="100" uuid="e6181198-2d3c-4726-a296-91be7170bfe4"/>
+				<imageExpression><![CDATA["./logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="263" y="10" width="120" height="28" uuid="24bef3a8-da7c-489c-8c44-aede2c5949c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mymba]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="62" width="315" height="20" uuid="776c1012-6ef1-4ce8-bbde-4ed97a1c5fab"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ruta Mcal. Estigarribia Km 11 1/2 - San Lorenzo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="82" width="288" height="20" uuid="d69031b9-d996-403b-98d5-3b33d3f55705"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tel: 0994 123456]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="103" width="170" height="20" uuid="75f23a71-fe74-41e6-bacb-1c43a3f62bc0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[contacto@mymbapp.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="269" y="38" width="131" height="20" uuid="e1fa5370-194b-4e97-99ee-7875e20bd71e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[www.mymbapp.com]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>

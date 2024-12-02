@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="435cb2fe-c21d-4da4-8651-a3b06cbac548">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="finicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ffin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="estado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qdepar" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pquery" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qciu" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qbarr" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="qusu" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="autor" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select 
+    case
+        when $P{qdepar} = -1 then 'TODOS'
+    else 
+        dep.nombre
+    end as qdep,
+
+    case
+        when $P{qciu} = -1 then 'TODAS'
+    else 
+        ciu.nombre
+    end as qciu,
+
+case
+        when $P{qbarr} = -1 then 'TODOS'
+    else 
+        barr.nombre
+    end as qbar,
+
+case
+        when $P{qusu} = -1 then 'TODOS'
+    else 
+        per.nombre
+    end as qper
+
+
+FROM perdidos p INNER JOIN personas per ON p.persona=per.id INNER JOIN barrios barr ON p.barrio=barr.id INNER JOIN ciudades ciu ON ciu.id=barr.ciudad INNER JOIN departamentos dep ON dep.id=ciu.departamento WHERE $P!{pquery}]]>
+	</queryString>
+	<field name="qdep" class="java.lang.String"/>
+	<field name="qciu" class="java.lang.String"/>
+	<field name="qbar" class="java.lang.String"/>
+	<field name="qper" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="323" splitType="Stretch">
+			<staticText>
+				<reportElement x="27" y="90" width="81" height="20" uuid="2afb1d2d-89b7-4a80-be44-d18b84540806"/>
+				<text><![CDATA[Fecha Inicio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="124" width="81" height="20" uuid="a83dc004-7a6f-4437-a94d-8539b303075b"/>
+				<text><![CDATA[Fecha Fin:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="124" width="44" height="20" uuid="277eed41-b8a3-4e6d-9345-a957d4ceb594"/>
+				<text><![CDATA[Usuario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="90" width="44" height="20" uuid="405da33c-cfdb-4b3a-9a94-ef455512ca8f"/>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="108" y="124" width="110" height="20" uuid="0d36d28c-5c3d-4f34-a045-f3894e53069b"/>
+				<textFieldExpression><![CDATA[($P{ffin}.equals("TODO")) ? $P{ffin} : new SimpleDateFormat("yyyy-MM-dd").parse($P{ffin})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="90" width="208" height="20" uuid="6a1807b5-b9ba-436c-9059-9a48eb36eefb"/>
+				<textFieldExpression><![CDATA[$P{estado}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="14" y="10" width="530" height="1" uuid="99af41ff-6010-4503-a611-445f0b7f400d"/>
+			</line>
+			<line>
+				<reportElement x="14" y="306" width="530" height="1" uuid="f45d4845-577b-4e22-a961-71e932344ffe"/>
+			</line>
+			<textField>
+				<reportElement x="299" y="124" width="208" height="20" uuid="268e67f5-f095-4809-bc58-813acdd2c2c0"/>
+				<textFieldExpression><![CDATA[$F{qper}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="159" width="81" height="20" uuid="33c99881-0ed8-4277-98e3-a47a563f8e91"/>
+				<text><![CDATA[Departamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="193" width="81" height="20" uuid="561988d7-3c15-494b-94ef-ee22526becf5"/>
+				<text><![CDATA[Ciudad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="226" width="81" height="20" uuid="f7db2eee-d84d-46f0-8ce9-f4ef77a32b9c"/>
+				<text><![CDATA[Barrio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="108" y="159" width="399" height="20" uuid="4a269b1f-ecfb-475f-8402-9a75ecbbda65"/>
+				<textFieldExpression><![CDATA[$F{qdep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="193" width="399" height="20" uuid="211046c4-7b72-425f-bfdd-f993aee1c721"/>
+				<textFieldExpression><![CDATA[$F{qciu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="226" width="399" height="20" uuid="b25087f6-ab6b-4e0f-82ef-24ee75d1f73f"/>
+				<textFieldExpression><![CDATA[$F{qbar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="27" width="520" height="46" uuid="8eadce1b-38a3-4455-b24e-c32296d38b0b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["INFORME DE PUBLICACIONES DE MASCOTAS " + $P{tipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="260" width="62" height="20" uuid="0e7a8f75-9aa6-413b-9ce8-62d63cddf831"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Generado el ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="91" y="260" width="110" height="20" uuid="e195f070-de2e-4fec-9a52-14baf29ea817"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="260" width="292" height="20" uuid="709e9b2f-3594-42e8-9102-c9efacb9c586"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" por " +  $P{autor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="108" y="90" width="110" height="20" uuid="611ca7cf-3bbf-4913-99aa-3c5e4db0c928"/>
+				<textFieldExpression><![CDATA[($P{finicio}.equals("TODO")) ? $P{finicio} : new SimpleDateFormat("yyyy-MM-dd").parse($P{finicio})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>
