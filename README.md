@@ -50,12 +50,12 @@ Demostracion   :  https://mymbapp.com
 
 
 
-## Pruebas
+## Descarga
 Para descargar y ejecutar el proyecto siga estos pasos:
 
 - Clonar el repositorio (`git clone https://github.com/josepalmacta/Mymbapp.git`)
-- Abra la carpeta del proyecto con su IDE de preferencia (Probado en Apache Netbeans).
-- Restaure la base de datos con nombre mymbappbd usando el archivo mymbappbd.sql
+- Abrir la carpeta del proyecto con su IDE de preferencia (Probado en Apache Netbeans).
+- Restaurar la base de datos con nombre mymbappbd usando el archivo mymbappbd.sql
 
 
 
