@@ -18,14 +18,14 @@ Demostracion   :  https://mymbapp.com
 ## Plataforma Publica
 
 ### Mapa interactivo
-![](https://i.imgur.com/mRfJjJ2.gif)
+![](https://i.imgur.com/S8y7yeD.gif)
 
 
 ### Pagina Principal
 ![](https://i.imgur.com/U6PVfT8.png)
 
 ### Busqueda
-![](https://i.imgur.com/mDRPMM4.gif)
+![](https://i.imgur.com/iklDbzO.gif)
 
 ### Posts
 ![](https://i.imgur.com/TkHBYei.png)
