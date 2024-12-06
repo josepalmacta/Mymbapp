@@ -20,7 +20,7 @@ Demostracion   :  https://mymbapp.com
 ### Pagina Principal
 ![](https://i.imgur.com/U6PVfT8.png)
 
-### Mapa en tiempo real
+### Mapa interactivo
 ![](https://i.imgur.com/S8y7yeD.gif)
 
 ### Busqueda
