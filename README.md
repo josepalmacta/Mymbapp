@@ -21,7 +21,7 @@ Demostracion   :  https://mymbapp.com
 ![](https://i.imgur.com/U6PVfT8.png)
 
 ### Mapa interactivo
-![](https://i.imgur.com/S8y7yeD.gif)
+![](https://i.imgur.com/EOg72DY.gif)
 
 ### Busqueda
 ![](https://i.imgur.com/iklDbzO.gif)
