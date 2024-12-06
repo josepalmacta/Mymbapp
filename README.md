@@ -4,7 +4,7 @@
 </p>
 
 
->Trabajo final graduacion del Centro Tecnologico de Avanzada Paraguay - Corea que consiste en el desarrollo de una Aplicacion Web para la organizacion sin fines de lucro Mymba. La aplicacion web cuenta con una plataforma publica que permite crear publicaciones acerca de mascotas perdidas, encontradas o que se encuentren en adopcion con integracion de e-commerce para recaudar fondos, asi como un panel adminsitrativo desde donde los miembros y colaboradores de la organizacion pueden gestionar el contenido y funcionamiento general de la plataforma.
+>Trabajo final graduacion del Tecnico Superior en TIC que consiste en el desarrollo de una Aplicacion Web para la organizacion sin fines de lucro Mymba. La aplicacion web cuenta con una plataforma publica que permite crear publicaciones acerca de mascotas perdidas, encontradas o que se encuentren en adopcion con integracion de e-commerce para recaudar fondos, asi como un panel adminsitrativo desde donde los miembros y colaboradores de la organizacion pueden gestionar el contenido y funcionamiento general de la plataforma.
 
 
 
@@ -22,13 +22,13 @@ Demostracion   :  https://mymbap.com
 
 
 ### Pagina Principal
-![](https://i.imgur.com/tc8LXbn.png)
+![](https://i.imgur.com/U6PVfT8.png)
 
 ### Busqueda personalizada
 ![](https://i.imgur.com/mDRPMM4.gif)
 
 ### Posts
-![](https://i.imgur.com/IXQ63OQ.png)
+![](https://i.imgur.com/TkHBYei.png)
 
 ### Ecommerce
 ![](https://i.imgur.com/7R92OTU.png)
@@ -37,26 +37,26 @@ Demostracion   :  https://mymbap.com
 
 
 
-## Descarga
+
+## Tecnologias utilizadas
+
+- [Java](https://www.java.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Postgis](https://postgis.net/)
+- [jQuery - Ajax](https://jquery.com/)
+- [Bootstrap](http://getbootstrap.com/)
+- [OpenStreetMap](https://www.openstreetmap.org/)
+
+
+
+
+
+## Pruebas
 Para descargar y ejecutar el proyecto siga estos pasos:
 
 - Clonar el repositorio (`git clone https://github.com/josepalmacta/Mymbapp.git`)
 - Abra la carpeta del proyecto con su IDE de preferencia (Probado en Apache Netbeans).
-- Restaure la base de datos con nombre mymbappdb usando el archivo mymbappdb.sql
-
-
-
-
-
-## Tecnologias utilizadas
-
-- [Java](http://www.w3schools.com/jquery/jquery_ref_ajax.asp)
-- [PostgreSQL](http://www.w3schools.com/jquery/jquery_ref_ajax.asp)
-- [Postgis](http://www.w3schools.com/jquery/jquery_ref_ajax.asp)
-- [jQuery - Ajax](http://www.w3schools.com/jquery/jquery_ref_ajax.asp)
-- [Bootstrap](http://getbootstrap.com/)
-- [OpenStreetMap](http://www.w3schools.com/jquery/jquery_ref_ajax.asp)
-
+- Restaure la base de datos con nombre mymbappbd usando el archivo mymbappbd.sql
 
 
 
