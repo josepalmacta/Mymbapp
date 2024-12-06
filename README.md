@@ -24,7 +24,7 @@ Demostracion   :  https://mymbap.com
 ### Pagina Principal
 ![](https://i.imgur.com/U6PVfT8.png)
 
-### Busqueda personalizada
+### Busqueda
 ![](https://i.imgur.com/mDRPMM4.gif)
 
 ### Posts
