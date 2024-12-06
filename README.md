@@ -1,8 +1,8 @@
-
-<p align="center" style="background-color:#0004fd;">
-  <img src="https://i.imgur.com/pxlvpaN.jpeg" alt="logo" />
-</p>
-
+<div style="width:100%; background-color:#0004fd;">
+  <p align="center">
+    <img src="https://i.imgur.com/pxlvpaN.jpeg" alt="logo" />
+  </p>
+</div>
 
 >Trabajo final graduacion del Tecnico Superior en TIC que consiste en el desarrollo de una Aplicacion Web para la organizacion sin fines de lucro Mymba. La aplicacion web cuenta con una plataforma publica que permite crear publicaciones acerca de mascotas perdidas, encontradas o que se encuentren en adopcion con integracion de e-commerce para recaudar fondos, asi como un panel adminsitrativo desde donde los miembros y colaboradores de la organizacion pueden gestionar el contenido y funcionamiento general de la plataforma.
 
