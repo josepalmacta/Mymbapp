@@ -17,12 +17,11 @@ Demostracion   :  https://mymbapp.com
 
 ## Plataforma Publica
 
-### Mapa interactivo
-![](https://i.imgur.com/S8y7yeD.gif)
-
-
 ### Pagina Principal
 ![](https://i.imgur.com/U6PVfT8.png)
+
+### Mapa interactivo
+![](https://i.imgur.com/S8y7yeD.gif)
 
 ### Busqueda
 ![](https://i.imgur.com/iklDbzO.gif)
