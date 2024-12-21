@@ -41,7 +41,7 @@ Demostracion   :  https://mymbapp.com
 ## Panel administrativo
 
 ### Pagina Principal
-![](https://github.com/josepalmacta/mymbapp-src/blob/master/web-panel.jpg?raw=true)
+![](https://github.com/josepalmacta/mymbapp-src/blob/master/web-panel.png?raw=true)
 
 
 
