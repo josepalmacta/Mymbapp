@@ -1,6 +1,6 @@
 <div style="width:100%; background-color:#0004fd;">
   <p align="center">
-    <img src="https://i.imgur.com/pxlvpaN.jpeg" alt="logo" />
+    <img src="https://github.com/josepalmacta/mymbapp-src/blob/master/logo.png?raw=true" alt="logo" />
   </p>
 </div>
 
@@ -22,7 +22,7 @@ Demostracion   :  https://mymbapp.com
 
 ### Mapa interactivo
 <p align="center">
-  <img src="https://i.imgur.com/EOg72DY.gif" alt="mapa" />
+  <img src="https://github.com/josepalmacta/mymbapp-src/blob/master/web-mapa.gif?raw=true" alt="mapa" />
 </p>
 
 ### Busqueda
@@ -34,6 +34,14 @@ Demostracion   :  https://mymbapp.com
 ### Ecommerce
 ![](https://i.imgur.com/7R92OTU.png)
 
+
+
+
+
+## Panel administrativo
+
+### Pagina Principal
+![](https://github.com/josepalmacta/mymbapp-src/blob/master/web-panel.jpg?raw=true)
 
 
 
